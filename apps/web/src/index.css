@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+
+/* ── Tokens de marca UNIVA (muestreados del logo) ─────────────────────── */
+@theme {
+  --color-ink: #050504;
+  --color-surface: #0e0f11;
+  --color-surface-2: #16171a;
+  --color-line: #2a2b30;
+  --color-muted: #a1a1aa;
+
+  --color-brand-300: #ffd25a;
+  --color-brand-400: #feb504; /* amarillo ámbar */
+  --color-brand-500: #ff8409; /* naranja */
+  --color-brand-600: #fc6c0e; /* naranja intenso */
+  --color-brand-700: #e94510; /* rojo-naranja */
+
+  --color-ok: #22c55e;
+  --color-warn: #facc15;
+  --color-danger: #f87171;
+
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-ink);
+    color: #f5f5f5;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-400);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .bg-brand-gradient {
+    background-image: linear-gradient(135deg, #feb504 0%, #ff8409 48%, #e94510 100%);
+  }
+  .text-brand-gradient {
+    background-image: linear-gradient(135deg, #feb504 0%, #ff8409 55%, #fc6c0e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* ── Widget ClienteAI: queda DEBAJO del botón de WhatsApp ──────────────────
+   Pila de botones flotantes (derecha), de arriba abajo:
+     subir (bottom: 160px) · WhatsApp (bottom: 92px) · ClienteAI (bottom: 24px)
+   El widget inyecta su propio <style> después del nuestro, por eso !important. */
+#cai-btn {
+  bottom: 24px !important;
+  right: 24px !important;
+  width: 56px !important;
+  height: 56px !important;
+  z-index: 60 !important;
+}
+#cai-box {
+  bottom: 24px !important;
+  right: 96px !important;
+  z-index: 70 !important;
+}
+@media (max-width: 520px) {
+  #cai-box {
+    right: 12px !important;
+    bottom: 92px !important;
+    width: calc(100vw - 24px) !important;
+    height: min(480px, calc(100dvh - 120px)) !important;
+  }
+}

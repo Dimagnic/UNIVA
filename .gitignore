@@ -1,0 +1,27 @@
+# Dependencias y compilación
+node_modules/
+dist/
+.vercel/
+*.tsbuildinfo
+coverage/
+
+# Secretos: NUNCA se suben al repositorio
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+supabase/.env
+supabase/.branches/
+supabase/.temp/
+
+# Editor / sistema
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+npm-debug.log*
+
+# Pruebas end-to-end
+playwright-report/
+test-results/

@@ -1,0 +1,27 @@
+# Configuración mínima para el CLI de Supabase (desarrollo local).
+# Si ejecutas `supabase init`, el CLI generará la versión completa de este archivo;
+# conserva allí estos valores y revisa los de autenticación antes de producción.
+project_id = "univa"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+
+[db]
+port = 54322
+# Verifica la versión mayor de Postgres de tu proyecto en el panel de Supabase.
+major_version = 17
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[auth]
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:5173/iniciar-sesion", "http://localhost:5173/restablecer"]
+enable_signup = true
+minimum_password_length = 10
+
+[auth.email]
+enable_confirmations = true
