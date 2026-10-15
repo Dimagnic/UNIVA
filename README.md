@@ -70,3 +70,5 @@ docs/                Arquitectura, base de datos, seguridad, API, despliegue, de
 
 - Nunca subir `.env`, claves ni datos reales. `service_role` jamás va en el frontend.
 - Cambios por rama y pull request; el CI debe pasar antes de integrar.
+
+
