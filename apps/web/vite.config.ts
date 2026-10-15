@@ -32,5 +32,5 @@ export default defineConfig({
       },
     }),
   ],
-     build: { sourcemap: false },
+  build: { sourcemap: false },
 });
